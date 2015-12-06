@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Invitation</title>
+
+    <!-- build:remove release -->
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <!-- /build -->
+
+    <!-- build:remove dev -->
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <!-- /build -->
+
+    <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+
+    <!-- build:remove release -->
+    <script type="text/javascript" src="../static/js/sea.js"></script>
+    <script type="text/javascript">
+      seajs.config({
+        base: '/spm_modules/',
+        alias: {
+          'zepto': 'zepto/1.1.3/index.js'
+        }
+      });
+    </script>
+    <script type="text/javascript" src="/spm_modules/seajs-wrap/1.0.2/src/seajs-wrap.js"></script>
+    <!-- /build -->
+
+  </head>
+  <body>
+    <div class="page content">
+      <div class="detail">
+        <p class="title">冒险家 <span class="name"></span>：</p>
+        <p class="slogan">一起去缎金时代吧。</p>
+        <p class="time">2015.12.10 2:00pm</p>
+        <p class="city">北京·中关村</p>
+        <p class="address">
+          <a href="javascript:;">创业大街 言几又咖啡馆二楼</a>
+        </p>
+      </div>
+    </div>
+    <div class="page canvas">
+      <div class="loading">loading...</div>
+    </div>
+    <div class="page map">
+      <img src="../static/img/map.jpg" />
+      (点击返回)
+    </div>
+
+    <!-- build:remove dev -->
+    <script type="text/javascript" src="../static/js/index.js"></script>
+    <!-- /build -->
+
+    <!-- build:remove release -->
+      <script type="text/javascript">
+        seajs.use('../static/js/index.js');
+      </script>
+    <!-- /build --> 
+  </body>
+</html>
