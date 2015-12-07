@@ -125,7 +125,7 @@ $.ajax({
     });
 
     wx.ready(function () {
-      var title = '一起去往缎金时代吧' + (name ? ',' + name : '') + '！';
+      var title = '一起去往缎金时代吧' + (name ? '，' + name : '') + '！';
       var desc = '12月10日下午 出门问问邀你一同闪耀';
       var link = window.location.href;
       var imgUrl = 'http://baike.bdimg.com/cms/static/r/image/2015-12-07/08a65aef11fad816bbd9331fcd8f232a.jpg';
