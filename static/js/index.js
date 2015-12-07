@@ -18,31 +18,31 @@ function startAni() {
     container: $canvas
   });
 
-  bubbleCrash.addBubble(-10, -30, 38, [2 + Math.random(), 2 + Math.random()], imgObjArr[9]);
-  bubbleCrash.addBubble(150, 15, 38, [2 + Math.random(), 2 + Math.random()], imgObjArr[11]);
-  bubbleCrash.addBubble(200, 30, 27, [2 + Math.random(), 2 + Math.random()], imgObjArr[0]);
-  bubbleCrash.addBubble(320, 32, 36, [2 + Math.random(), 2 + Math.random()], imgObjArr[7]);
-  bubbleCrash.addBubble(-10, 80, 33, [2 + Math.random(), 2 + Math.random()], imgObjArr[9]);
-  bubbleCrash.addBubble(80, 90, 39, [2 + Math.random(), 2 + Math.random()], imgObjArr[1]);
-  bubbleCrash.addBubble(240, 110, 28, [2 + Math.random(), 2 + Math.random()], imgObjArr[8]);
-  bubbleCrash.addBubble(310, 110, 22, [2 + Math.random(), 2 + Math.random()], imgObjArr[0]);
-  bubbleCrash.addBubble(-5, 160, 40, [2 + Math.random(), 2 + Math.random()], imgObjArr[10]);
-  bubbleCrash.addBubble(90, 180, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[7]);
-  bubbleCrash.addBubble(275, 180, 35, [2 + Math.random(), 2 + Math.random()], imgObjArr[5]);
-  bubbleCrash.addBubble(10, 240, 34, [2 + Math.random(), 2 + Math.random()], imgObjArr[4]);
-  bubbleCrash.addBubble(70, 260, 28, [2 + Math.random(), 2 + Math.random()], imgObjArr[0]);
-  bubbleCrash.addBubble(175, 180, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[11]);
-  bubbleCrash.addBubble(220, 280, 50, [2 + Math.random(), 2 + Math.random()], imgObjArr[1]);
-  bubbleCrash.addBubble(15, 350, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[2]);
-  bubbleCrash.addBubble(115, 330, 42, [2 + Math.random(), 2 + Math.random()], imgObjArr[10]);
-  bubbleCrash.addBubble(300, 340, 30, [2 + Math.random(), 2 + Math.random()], imgObjArr[5]);
-  bubbleCrash.addBubble(15, 430, 28, [2 + Math.random(), 2 + Math.random()], imgObjArr[6]);
-  bubbleCrash.addBubble(100, 430, 30, [2 + Math.random(), 2 + Math.random()], imgObjArr[8]);
-  bubbleCrash.addBubble(250, 470, 48, [2 + Math.random(), 2 + Math.random()], imgObjArr[1]);
-  bubbleCrash.addBubble(320, 500, 40, [2 + Math.random(), 2 + Math.random()], imgObjArr[10]);
-  bubbleCrash.addBubble(75, 540, 34, [2 + Math.random(), 2 + Math.random()], imgObjArr[2]);
-  bubbleCrash.addBubble(165, 510, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[8]);
-  bubbleCrash.addBubble(295, 550, 38, [2 + Math.random(), 2 + Math.random()], imgObjArr[11]);
+  bubbleCrash.addBubble(-10, -30, 38, [4 + Math.random(), 4 + Math.random()], imgObjArr[9]);
+  bubbleCrash.addBubble(150, 15, 38, [4 + Math.random(), 4 + Math.random()], imgObjArr[11]);
+  bubbleCrash.addBubble(200, 30, 27, [4 + Math.random(), 4 + Math.random()], imgObjArr[0]);
+  bubbleCrash.addBubble(320, 32, 36, [4 + Math.random(), 4 + Math.random()], imgObjArr[7]);
+  bubbleCrash.addBubble(-10, 80, 33, [4 + Math.random(), 4 + Math.random()], imgObjArr[9]);
+  bubbleCrash.addBubble(80, 90, 39, [4 + Math.random(), 4 + Math.random()], imgObjArr[1]);
+  bubbleCrash.addBubble(240, 110, 28, [4 + Math.random(), 4 + Math.random()], imgObjArr[8]);
+  bubbleCrash.addBubble(310, 110, 22, [4 + Math.random(), 4 + Math.random()], imgObjArr[0]);
+  bubbleCrash.addBubble(-5, 160, 40, [4 + Math.random(), 4 + Math.random()], imgObjArr[10]);
+  bubbleCrash.addBubble(90, 180, 32, [4 + Math.random(), 4 + Math.random()], imgObjArr[7]);
+  bubbleCrash.addBubble(275, 180, 35, [4 + Math.random(), 4 + Math.random()], imgObjArr[5]);
+  bubbleCrash.addBubble(10, 240, 34, [4 + Math.random(), 4 + Math.random()], imgObjArr[4]);
+  bubbleCrash.addBubble(70, 260, 28, [4 + Math.random(), 4 + Math.random()], imgObjArr[0]);
+  bubbleCrash.addBubble(175, 180, 32, [4 + Math.random(), 4 + Math.random()], imgObjArr[11]);
+  bubbleCrash.addBubble(220, 280, 50, [4 + Math.random(), 4 + Math.random()], imgObjArr[1]);
+  bubbleCrash.addBubble(15, 350, 32, [4 + Math.random(), 4 + Math.random()], imgObjArr[2]);
+  bubbleCrash.addBubble(115, 330, 42, [4 + Math.random(), 4 + Math.random()], imgObjArr[10]);
+  bubbleCrash.addBubble(300, 340, 30, [4 + Math.random(), 4 + Math.random()], imgObjArr[5]);
+  bubbleCrash.addBubble(15, 430, 28, [4 + Math.random(), 4 + Math.random()], imgObjArr[6]);
+  bubbleCrash.addBubble(100, 430, 30, [4 + Math.random(), 4 + Math.random()], imgObjArr[8]);
+  bubbleCrash.addBubble(250, 470, 48, [4 + Math.random(), 4 + Math.random()], imgObjArr[1]);
+  bubbleCrash.addBubble(320, 500, 40, [4 + Math.random(), 4 + Math.random()], imgObjArr[10]);
+  bubbleCrash.addBubble(75, 540, 34, [4 + Math.random(), 4 + Math.random()], imgObjArr[2]);
+  bubbleCrash.addBubble(165, 510, 32, [4 + Math.random(), 4 + Math.random()], imgObjArr[8]);
+  bubbleCrash.addBubble(295, 550, 38, [4 + Math.random(), 4 + Math.random()], imgObjArr[11]);
 
   $canvas.on('touchstart', function (e) {
     animation({
@@ -55,7 +55,7 @@ function startAni() {
         $canvas.remove();
       }
     });
-    bubbleCrash.addGravity(e.targetTouches[0].clientX, e.targetTouches[0].clientY, 25);
+    bubbleCrash.addGravity(e.targetTouches[0].clientX, e.targetTouches[0].clientY, 40);
   });
 
   $address.on('touchstart', function () {
