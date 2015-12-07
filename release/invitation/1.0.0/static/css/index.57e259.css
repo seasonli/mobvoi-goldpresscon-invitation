@@ -390,7 +390,7 @@ body {
 }
 .content {
   background-color: #0d0908;
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/bg-origin.jpg);
   background-size: 100% auto;
 }
 .content .detail {
