@@ -1,0 +1,442 @@
+/**
+ * @Fileoverview mixins.less
+ * @Author SeasonLi | season.chopsticks@gmail.com
+ * @Version 1.0 | 2014-11-01 | SeasonLi    // Initial Version
+ **/
+/**
+ * @Fileoverview mixins.less
+ * @Author SeasonLi | season.chopsticks@gmail.com
+ * @Version 1.0 | 2014-11-01 | SeasonLi    // Initial Version
+ **/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary,
+dialog {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+  width: 0;
+}
+[hidden] {
+  display: none;
+}
+mark {
+  background: #FF0;
+  color: #333;
+}
+html {
+  font-size: 12px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: arial, tahoma, 'Microsoft Yahei', '\5b8b\4f53', sans-serif;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+body {
+  color: #333;
+  background-color: #FFF;
+  line-height: 1.5;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+figure,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+select th,
+td {
+  margin: 0;
+  padding: 0;
+}
+address,
+cite,
+dfn,
+em,
+var,
+i {
+  font-style: normal;
+}
+a {
+  color: #338DE6;
+  text-decoration: none;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.83em;
+}
+h6 {
+  font-size: 0.75em;
+}
+b,
+strong {
+  font-weight: bold;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+q {
+  quotes: none;
+}
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+small {
+  font-size: 75%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+fieldset {
+  border: 0;
+}
+legend {
+  border: 0;
+  white-space: normal;
+  *margin-left: -7px;
+}
+button,
+input,
+select {
+  vertical-align: middle;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  *overflow: visible;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  *height: 13px;
+  *width: 13px;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/**
+ * @Fileoverview mixins.less
+ * @Author SeasonLi | season.chopsticks@gmail.com
+ * @Version 1.0 | 2014-11-01 | SeasonLi    // Initial Version
+ **/
+body {
+  background: #0d0908;
+}
+.page {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.canvas {
+  background: #0d0908;
+}
+.canvas .loading {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  color: #d9c65f;
+  font-size: 16px;
+}
+.canvas .bubble {
+  position: absolute;
+  border-radius: 100px;
+  background-image: url(../img/bubble-blank.png);
+  background-size: 100% 100%;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+  animation-name: rotate;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.canvas .bubble-rotate-reverse {
+  -webkit-animation-name: rotate-reverse;
+  -webkit-animation-duration: 15s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+  animation-name: rotate-reverse;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.canvas .bubble-tic {
+  background-image: url(../img/bubble-tic.png);
+}
+.canvas .bubble-google {
+  background-image: url(../img/bubble-google.png);
+}
+.canvas .bubble-microphone {
+  background-image: url(../img/bubble-microphone.png);
+}
+.canvas .bubble-movie {
+  background-image: url(../img/bubble-movie.png);
+}
+.canvas .bubble-navigation {
+  background-image: url(../img/bubble-navigation.png);
+}
+.canvas .bubble-translate {
+  background-image: url(../img/bubble-translate.png);
+}
+.canvas .bubble-restaurant {
+  background-image: url(../img/bubble-restaurant.png);
+}
+.canvas .bubble-train {
+  background-image: url(../img/bubble-train.png);
+}
+.canvas .bubble-flight {
+  background-image: url(../img/bubble-flight.png);
+}
+.canvas .bubble-wen {
+  background-image: url(../img/bubble-wen.png);
+}
+.canvas .bubble-voice {
+  background-image: url(../img/bubble-voice.png);
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate-reverse {
+  from {
+    -webkit-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+}
+@-webkit-keyframes rotate-reverse {
+  from {
+    -webkit-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+}
+.content {
+  background-color: #0d0908;
+  background-image: url(../img/bg.jpg);
+  background-size: 100% auto;
+}
+.content .detail {
+  position: absolute;
+  display: none;
+  left: 25%;
+  color: #000;
+  font-size: 18px;
+}
+.content .detail a {
+  color: #000;
+}
+.content .detail .title {
+  font-weight: bolder;
+}
+.content .detail .title .name {
+  text-decoration: underline;
+}
+.content .detail .slogan {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bolder;
+}
+.content .detail .city {
+  margin: 5px 0;
+  font-weight: bolder;
+}
+.content .detail .address {
+  position: relative;
+  left: -25px;
+  padding-left: 25px;
+  font-size: 16px;
+  text-decoration: underline;
+  background: url(../img/btn-navi.png) no-repeat left top;
+  background-size: 20px 20px;
+}
+.map {
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+}
+.map img {
+  display: block;
+  margin: 50px auto 5px;
+  width: 85%;
+  box-shadow: 0 0 10px 2px #000;
+}
