@@ -288,9 +288,6 @@ body {
   animation-direction: normal;
   animation-fill-mode: none;
   animation-play-state: running;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
 }
 .canvas .bubble-rotate-reverse {
   -webkit-animation-name: rotate-reverse;
