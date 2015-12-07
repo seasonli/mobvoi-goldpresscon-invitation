@@ -115,6 +115,7 @@ $.ajax({
   },
   dataType: 'JSON',
   success: function (data) {
+    var data = $.parseJSON(data);
     wx.config({
       debug: false,
       appId: data.app_id,
