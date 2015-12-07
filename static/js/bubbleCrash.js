@@ -1,5 +1,5 @@
-var zepto = require('zepto');
 var animation = require('./animation');
+var Kinetic = require('./kinetic');
 
 
 var BubbleCrash = function (config) {
@@ -9,98 +9,70 @@ var BubbleCrash = function (config) {
   this.boundaryWidth = this.$container.width();
   this.boundaryHeight = this.$container.height();
   this.bubbleList = [];
+  this.kineticNode = {};
 
-  var self = this;
-  this.ani = animation({
-    duration: 1000 * 60,
-    easing: 'linear',
-    onStep: function (progress) {
-      for (var i in self.bubbleList) {
-        var bubble = self.bubbleList[i];
-
-        if (!self.hasBoundary) {
-          checkBoundary.apply(self, [bubble]);
-        }
-        checkCrash.apply(self, [bubble]);
-        bubbleMove.apply(self, [bubble]);
-      }
-    },
-    onComplete: function (progress) {
-      //
-    }
+  // 构建舞台
+  this.kineticNode.stage = new Kinetic.Stage({
+    container: this.$container.get(0),
+    width: this.boundaryWidth,
+    height: this.boundaryHeight
   });
+
+  // 构建层
+  this.kineticNode.layer = new Kinetic.Layer({
+    x: 0,
+    y: 0,
+    width: this.boundaryWidth,
+    height: this.boundaryHeight
+  });
+
+  this.kineticNode.stage.add(this.kineticNode.layer);
+
+  // 逐帧动画
+  var self = this;
+  this.ani = new Kinetic.Animation(function (frame) {
+    for (var i in self.bubbleList) {
+      var bubble = self.bubbleList[i];
+
+      if (!self.hasBoundary) {
+        checkBoundary.apply(self, [bubble]);
+      }
+      bubbleMove.apply(self, [bubble]);
+    }
+  }, this.kineticNode.layer);
+  this.ani.start();
 }
 
 // 检测边界
 function checkBoundary(bubble) {
-  var $bubble = bubble.elem;
-  var bubbleRaidus = $bubble.width() / 2;
-  var bubbleLeft = parseFloat($bubble.css('left')) + bubbleRaidus;
-  var bubbleTop = parseFloat($bubble.css('top')) + bubbleRaidus;
+  var bubbleNode = bubble.kineticNode;
+  var bubbleRaidus = bubbleNode.getAttr('radius');
+
+  var bubbleLeft = parseFloat(bubbleNode.getAttr('x'));
+  var bubbleTop = parseFloat(bubbleNode.getAttr('y'));
 
   // 检测右边界
   if (bubble.velocity[0] > 0) {
     if (bubbleLeft - bubbleRaidus >= this.boundaryWidth) {
-      // bubble.velocity[0] = -bubble.velocity[0];
-      $bubble.css('left', 0 - bubbleRaidus * 2);
+      bubbleNode.setAttr('x', 0 - bubbleRaidus * 2);
     }
   }
   // 检测左边界
   else {
     if (bubbleLeft + bubbleRaidus <= 0) {
-      // bubble.velocity[0] = -bubble.velocity[0];
-      $bubble.css('left', this.boundaryWidth);
+      bubbleNode.setAttr('x', this.boundaryWidth);
     }
   }
   // 检测下边界
   if (bubble.velocity[1] > 0) {
     if (bubbleTop - bubbleRaidus >= this.boundaryHeight) {
-      // bubble.velocity[1] = -bubble.velocity[1];
-      $bubble.css('top', 0 - bubbleRaidus * 2);
+      bubbleNode.setAttr('y', 0 - bubbleRaidus * 2);
     }
   }
   // 检测上边界
   else {
     if (bubbleTop + bubbleRaidus <= 0) {
-      // bubble.velocity[1] = -bubble.velocity[1];
-      $bubble.css('top', this.boundaryHeight);
-    }
-  }
-}
-
-// 检查碰撞
-function checkCrash(bubble) {
-  var $bubble = bubble.elem;
-  var bubbleRaidus = $bubble.width() / 2;
-  var bubbleLeft = parseFloat($bubble.css('left')) + bubbleRaidus;
-  var bubbleTop = parseFloat($bubble.css('top')) + bubbleRaidus;
-
-  for (var i in this.bubbleList) {
-    var subBubble = this.bubbleList[i];
-
-    var $subBubble = subBubble.elem;
-    var subBubbleRaidus = $subBubble.width() / 2;
-    var subBubbleLeft = parseFloat($subBubble.css('left')) + subBubbleRaidus;
-    var subBubbleTop = parseFloat($subBubble.css('top')) + subBubbleRaidus;
-
-    var distance = Math.sqrt(Math.pow(bubbleLeft - subBubbleLeft, 2) + Math.pow(bubbleTop - subBubbleTop, 2));
-
-    // 假设气泡质量相等，完全弹性碰撞
-    if (distance <= bubbleRaidus + subBubbleRaidus) {
-      // 计算碰撞角度
-      // var rad = Math.atan((subBubbleLeft - bubbleLeft) / (subBubbleTop - bubbleTop));
-
-      // var vb = Math.cos(rad) * bubble.velocity[1] + Math.sin(rad) * subBubble.velocity[0];
-      // var vsb = Math.cos(rad) * subBubble.velocity[1] + Math.sin(rad) * bubble.velocity[0];
-      // var _vb = Math.sin(rad) * bubble.velocity[1] + Math.cos(rad) * subBubble.velocity[0];
-      // var _vsb = Math.sin(rad) * subBubble.velocity[1] + Math.cos(rad) * subBubble.velocity[0];
-
-      // bubble.velocity = [Math.sin(rad) * vb + Math.cos(rad) * _vb, Math.cos(rad) * vb + Math.sin(rad) * _vb];
-      // subBubble.velocity = [Math.sin(rad) * vsb + Math.cos(rad) * _vb, Math.cos(rad) * _vsb + Math.sin(rad) * _vb];
-
-      // // var _velocity = bubble.velocity;
-      // // bubble.velocity = subBubble.velocity;
-      // // subBubble.velocity = _velocity;
+      bubbleNode.setAttr('y', this.boundaryHeight);
     }
   }
 }
@@ -112,10 +84,11 @@ function addGravity(left, top, level) {
   for (var i in this.bubbleList) {
     var bubble = this.bubbleList[i];
 
-    var $bubble = bubble.elem;
-    var bubbleRaidus = $bubble.width() / 2;
-    var bubbleLeft = parseFloat($bubble.css('left')) + bubbleRaidus;
-    var bubbleTop = parseFloat($bubble.css('top')) + bubbleRaidus;
+    var bubbleNode = bubble.kineticNode;
+    var bubbleRaidus = bubbleNode.getAttr('radius');
+
+    var bubbleLeft = parseFloat(bubbleNode.getAttr('x'));
+    var bubbleTop = parseFloat(bubbleNode.getAttr('y'));
 
     // 计算碰撞角度
     var rad = Math.atan((bubbleLeft - left) / (bubbleTop - top));
@@ -130,36 +103,47 @@ function addGravity(left, top, level) {
 
 // 气泡缓动
 function bubbleMove(bubble) {
-  var $bubble = bubble.elem;
-  $bubble.css({
-    left: parseFloat($bubble.css('left')) + bubble.velocity[0] * .25,
-    top: parseFloat($bubble.css('top')) + bubble.velocity[1] * .25
+  var bubbleNode = bubble.kineticNode;
+
+  bubbleNode.setAttrs({
+    x: parseFloat(bubbleNode.getAttr('x')) + bubble.velocity[0] * .25,
+    y: parseFloat(bubbleNode.getAttr('y')) + bubble.velocity[1] * .25,
+    // rotation: parseFloat(bubbleNode.getAttr('rotation') + bubble.velocity[0] / 10)
   });
 }
 
 
 BubbleCrash.prototype = {
   constructor: BubbleCrash,
-  addBubble: function (left, top, radius, velocity) {
-    var $bubble = $('<div>').addClass('bubble').css({
-      left: (left - radius) * $(window).width() / 320,
-      top: (top - radius) * $(window).height() / 520,
-      width: radius * 2,
-      height: radius * 2
+  addBubble: function (left, top, radius, velocity, imgObj) {
+    var bubble = new Kinetic.Circle({
+      x: left * $(window).width() / 320,
+      y: top * $(window).height() / 520,
+      radius: radius,
+      fillPatternImage: imgObj,
+      fillPatternRepeat: 'no-repeat',
+      fillPatternOffset: {
+        x: 125 / 2,
+        y: 125 / 2
+      },
+      fillPatternScale: {
+        x: radius / (125 / 2),
+        y: radius / (125 / 2)
+      },
+      rotation: 0
     });
 
-    $bubble.appendTo(this.$container);
+    this.kineticNode.layer.add(bubble);
+
     this.bubbleList.push({
-      elem: $bubble,
-      velocity: velocity
+      velocity: velocity,
+      kineticNode: bubble
     });
-
-    return $bubble;
   },
   addGravity: function (left, top, level) {
     addGravity.apply(this, [left, top, level]);
   },
-  stop: function() {
+  stop: function () {
     this.ani.stop();
   }
 };

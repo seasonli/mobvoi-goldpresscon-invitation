@@ -1,7 +1,5 @@
 // url
-
-
-var $ = require('zepto');
+var zepto = require('zepto');
 
 module.exports = {
   queryToJson: function (url, shouldDecode) {

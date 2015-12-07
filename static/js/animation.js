@@ -1,9 +1,7 @@
 // animation
-
-
-var $ = require('zepto'),
-  tween = require('./tween'),
-  safeCall = require('./safeCall');
+var zepto = require('zepto');
+var tween = require('./tween');
+var safeCall = require('./safeCall');
 
 // 初始化 raf、caf.
 var browserPrefix = ['webkit', 'moz'],

@@ -18,40 +18,31 @@ function startAni() {
     container: $canvas
   });
 
-  bubbleCrash.addBubble(-10, -30, 38, [5, 5]).addClass('bubble-flight');
-  bubbleCrash.addBubble(150, 15, 38, [5, 5]).addClass('bubble-voice bubble-rotate-reverse');
-  bubbleCrash.addBubble(200, 30, 27, [5, 5]);
-  bubbleCrash.addBubble(320, 32, 36, [5, 5]).addClass('bubble-restaurant');
-
-  bubbleCrash.addBubble(-10, 80, 33, [5, 5]).addClass('bubble-flight bubble-rotate-reverse');
-  bubbleCrash.addBubble(80, 90, 39, [5, 5]).addClass('bubble-tic');
-  bubbleCrash.addBubble(240, 110, 28, [5, 5]).addClass('bubble-train bubble-rotate-reverse');
-  bubbleCrash.addBubble(310, 110, 22, [5, 5]);
-
-  bubbleCrash.addBubble(-5, 160, 40, [5, 5]).addClass('bubble-wen bubble-rotate-reverse');
-  bubbleCrash.addBubble(90, 180, 32, [5, 5]).addClass('bubble-restaurant');
-  bubbleCrash.addBubble(165, 110, 30, [5, 5]);
-  bubbleCrash.addBubble(275, 180, 35, [5, 5]).addClass('bubble-navigation');
-
-  bubbleCrash.addBubble(10, 240, 34, [5, 5]).addClass('bubble-movie');
-  bubbleCrash.addBubble(70, 260, 28, [5, 5]);
-  bubbleCrash.addBubble(175, 180, 32, [5, 5]).addClass('bubble-voice bubble-rotate-reverse');
-  bubbleCrash.addBubble(220, 280, 50, [5, 5]).addClass('bubble-tic');
-
-  bubbleCrash.addBubble(15, 350, 32, [5, 5]).addClass('bubble-google');
-  bubbleCrash.addBubble(115, 330, 42, [5, 5]).addClass('bubble-wen');
-  bubbleCrash.addBubble(220, 380, 32, [5, 5]).addClass('bubble-flight bubble-rotate-reverse');
-  bubbleCrash.addBubble(300, 340, 30, [5, 5]).addClass('bubble-navigation');
-
-  bubbleCrash.addBubble(15, 430, 28, [5, 5]).addClass('bubble-translate bubble-rotate-reverse');
-  bubbleCrash.addBubble(100, 430, 30, [5, 5]).addClass('bubble-train');
-  bubbleCrash.addBubble(250, 470, 48, [5, 5]).addClass('bubble-tic');
-  bubbleCrash.addBubble(320, 500, 40, [5, 5]).addClass('bubble-wen bubble-rotate-reverse');
-
-  bubbleCrash.addBubble(75, 540, 34, [5, 5]).addClass('bubble-google');
-  bubbleCrash.addBubble(165, 510, 32, [5, 5]).addClass('bubble-train bubble-rotate-reverse');
-  bubbleCrash.addBubble(295, 550, 38, [5, 5]).addClass('bubble-voice bubble-rotate-reverse');
-
+  bubbleCrash.addBubble(-10, -30, 38, [2 + Math.random(), 2 + Math.random()], imgObjArr[9]);
+  bubbleCrash.addBubble(150, 15, 38, [2 + Math.random(), 2 + Math.random()], imgObjArr[11]);
+  bubbleCrash.addBubble(200, 30, 27, [2 + Math.random(), 2 + Math.random()], imgObjArr[0]);
+  bubbleCrash.addBubble(320, 32, 36, [2 + Math.random(), 2 + Math.random()], imgObjArr[7]);
+  bubbleCrash.addBubble(-10, 80, 33, [2 + Math.random(), 2 + Math.random()], imgObjArr[9]);
+  bubbleCrash.addBubble(80, 90, 39, [2 + Math.random(), 2 + Math.random()], imgObjArr[1]);
+  bubbleCrash.addBubble(240, 110, 28, [2 + Math.random(), 2 + Math.random()], imgObjArr[8]);
+  bubbleCrash.addBubble(310, 110, 22, [2 + Math.random(), 2 + Math.random()], imgObjArr[0]);
+  bubbleCrash.addBubble(-5, 160, 40, [2 + Math.random(), 2 + Math.random()], imgObjArr[10]);
+  bubbleCrash.addBubble(90, 180, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[7]);
+  bubbleCrash.addBubble(275, 180, 35, [2 + Math.random(), 2 + Math.random()], imgObjArr[5]);
+  bubbleCrash.addBubble(10, 240, 34, [2 + Math.random(), 2 + Math.random()], imgObjArr[4]);
+  bubbleCrash.addBubble(70, 260, 28, [2 + Math.random(), 2 + Math.random()], imgObjArr[0]);
+  bubbleCrash.addBubble(175, 180, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[11]);
+  bubbleCrash.addBubble(220, 280, 50, [2 + Math.random(), 2 + Math.random()], imgObjArr[1]);
+  bubbleCrash.addBubble(15, 350, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[2]);
+  bubbleCrash.addBubble(115, 330, 42, [2 + Math.random(), 2 + Math.random()], imgObjArr[10]);
+  bubbleCrash.addBubble(300, 340, 30, [2 + Math.random(), 2 + Math.random()], imgObjArr[5]);
+  bubbleCrash.addBubble(15, 430, 28, [2 + Math.random(), 2 + Math.random()], imgObjArr[6]);
+  bubbleCrash.addBubble(100, 430, 30, [2 + Math.random(), 2 + Math.random()], imgObjArr[8]);
+  bubbleCrash.addBubble(250, 470, 48, [2 + Math.random(), 2 + Math.random()], imgObjArr[1]);
+  bubbleCrash.addBubble(320, 500, 40, [2 + Math.random(), 2 + Math.random()], imgObjArr[10]);
+  bubbleCrash.addBubble(75, 540, 34, [2 + Math.random(), 2 + Math.random()], imgObjArr[2]);
+  bubbleCrash.addBubble(165, 510, 32, [2 + Math.random(), 2 + Math.random()], imgObjArr[8]);
+  bubbleCrash.addBubble(295, 550, 38, [2 + Math.random(), 2 + Math.random()], imgObjArr[11]);
 
   $canvas.on('touchstart', function (e) {
     animation({
@@ -100,6 +91,7 @@ var imgSrcArr = [
   '../static/img/bubble-wen.png',
   '../static/img/bubble-voice.png'
 ];
+var imgObjArr = [];
 
 for (var i in imgSrcArr) {
   var imgObj = new Image();
@@ -110,4 +102,5 @@ for (var i in imgSrcArr) {
       startAni();
     }
   }
+  imgObjArr.push(imgObj);
 }
