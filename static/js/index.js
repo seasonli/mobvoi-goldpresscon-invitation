@@ -116,10 +116,10 @@ $.ajax({
   dataType: 'JSON',
   success: function (data) {
     wx.config({
-      debug: true,
-      appId: data.appId,
+      debug: false,
+      appId: data.app_id,
       timestamp: data.timestamp,
-      nonceStr: data.nonceStr,
+      nonceStr: data.noncestr,
       signature: data.signature,
       jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
     });
