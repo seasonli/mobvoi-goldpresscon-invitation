@@ -73,7 +73,8 @@ $detail.css({
   display: 'block',
   top: $(window).width() / 640 * 450
 });
-$name.text(decodeURIComponent(url.queryToJson(window.location.href).name || ''));
+var name = decodeURIComponent(url.queryToJson(window.location.href).name || '');
+$name.text(name);
 
 
 var n = 0;
@@ -104,3 +105,42 @@ for (var i in imgSrcArr) {
   }
   imgObjArr.push(imgObj);
 }
+
+
+$.ajax({
+  type: 'GET',
+  url: 'http://wechat-platform.chumenwenwen.com/apps/common/js_config',
+  data: {
+    url: window.location.href
+  },
+  dataType: 'JSON',
+  success: function (data) {
+    wx.config({
+      debug: false,
+      appId: data.appId,
+      timestamp: data.timestamp,
+      nonceStr: data.nonceStr,
+      signature: data.signature,
+      jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+    });
+
+    wx.ready(function () {
+      var title = '一起去往缎金时代吧' + (name ? ',' + name : '') + '！';
+      var desc = '12月10日下午 出门问问邀你一同闪耀';
+      var link = window.location.href;
+      var imgUrl = 'http://baike.bdimg.com/cms/static/r/image/2015-12-07/08a65aef11fad816bbd9331fcd8f232a.jpg';
+
+      wx.onMenuShareTimeline({
+        title: title,
+        link: link,
+        imgUrl: imgUrl
+      });
+      wx.onMenuShareAppMessage({
+        title: title,
+        desc: desc,
+        link: link,
+        imgUrl: imgUrl
+      });
+    });
+  }
+});
